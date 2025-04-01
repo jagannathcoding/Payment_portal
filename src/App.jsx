@@ -201,7 +201,7 @@ const App = () => {
           </div>
 
           <div className="input-group">
-            <label>IFSC Code</label>
+            <label>IFSC Code Code</label>
             <input
               type="text"
               name="ifscCode"
