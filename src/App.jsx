@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import "./styles.css"; 
+import { QRCodeCanvas } from "qrcode.react";
+
 
 const App = () => {
   const [selectedMethod, setSelectedMethod] = useState("card");
@@ -21,6 +23,7 @@ const App = () => {
   });
 
   // Refs for auto-focus
+  const[upiId,setUpiId]=useState("");
   const expiryRef = useRef(null);
   const cvvRef = useRef(null);
   const nameRef = useRef(null);
@@ -166,6 +169,34 @@ const App = () => {
             <label>Save this card for future payments</label>
           </div>
         </>
+      )}
+
+      {/* UPI Payment Form */}
+      {selectedMethod==="upi" && (
+        <>
+        <h2 className="payment-title">Enter UPI Id</h2>
+        <div className="input-group">
+          <label>ENter Upi ID</label>
+          <input
+            type="text"
+            placeholder="example@upi"
+            value={upiId}
+            onChange={(e)=>setUpiId(e.target.value)}
+          />
+           </div>        
+       
+      
+
+     
+        <div className="qr-container">
+        <h3>
+          Scan QR Code to Pay</h3>
+        <QRCodeCanvas value={`upi://pay?pa=${upiId || "example@upi"}`} size={100} />
+        <p>Scan the QR code using your UPI app to complete the payment.</p>
+          </div>
+          
+      
+    </>
       )}
 
 

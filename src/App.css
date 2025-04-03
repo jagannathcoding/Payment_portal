@@ -110,3 +110,13 @@ body {
 .pay-btn:hover {
   background: #0056b3;
 }
+
+.qr-container {
+  text-align: center;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+}
